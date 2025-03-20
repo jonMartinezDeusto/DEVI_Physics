@@ -21,7 +21,6 @@ public class CheckCollision : MonoBehaviour
         if(collision.gameObject.name=="Capsule")
         {
             Debug.Log("Comienzo a chocar");
-            Destroy(this.gameObject);
         }
     }
     void OnCollisionStay(Collision collision)
@@ -37,8 +36,10 @@ public class CheckCollision : MonoBehaviour
         if (collision.gameObject.name == "Capsule")
         {
             Debug.Log("He dejado de chocar");
+            Destroy(this.gameObject);
+
         }
-       
+
     }
 }
 
