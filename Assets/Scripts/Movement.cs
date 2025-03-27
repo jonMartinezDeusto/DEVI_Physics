@@ -1,41 +1,50 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public float speed;
+    public float fuerza;
+    public bool grounded;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckMovement();
+        manageInput();
     }
 
-    public void CheckMovement()
+    private void manageInput()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        transform.position = new Vector3(transform.position.x + Input.GetAxis("Horizontal") * speed * Time.deltaTime, transform.position.y, transform.position.z + Input.GetAxis("Vertical") * speed * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z);
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1, gameObject.transform.position.z);
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x + 1, gameObject.transform.position.y, gameObject.transform.position.z);
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x - 1, gameObject.transform.position.y, gameObject.transform.position.z);
+            GetComponent<Rigidbody>().AddForce(Vector3.up * fuerza, ForceMode.Impulse);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            grounded = false;
+        }
+    }
+
+
 }

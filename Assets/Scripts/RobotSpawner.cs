@@ -10,6 +10,8 @@ public class RobotSpawner : MonoBehaviour
     void Start()
     {
         Instantiate(robot);
+
+
         for (int i = 0; i < 50; i++)
         {
             Instantiate(robot, new Vector3(0    , 0         , 0+ i * 10) , Quaternion.identity);
