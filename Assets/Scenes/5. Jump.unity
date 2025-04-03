@@ -411,8 +411,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 405317278420828840, guid: eea235ad2fce2f447822036b68c20afa, type: 3}
-      propertyPath: m_Enabled
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 405317278420828840, guid: eea235ad2fce2f447822036b68c20afa, type: 3}
+      propertyPath: canJump
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 405317278420828840, guid: eea235ad2fce2f447822036b68c20afa, type: 3}
+      propertyPath: jumpForce
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 405317278420828840, guid: eea235ad2fce2f447822036b68c20afa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 405317278420828843, guid: eea235ad2fce2f447822036b68c20afa, type: 3}
       propertyPath: m_RootOrder

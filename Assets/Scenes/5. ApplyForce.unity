@@ -237,7 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bafacb77f2a741ed938b36550b18ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 10
+  forceAmount: 200
+  randomize: 1
 --- !u!1 &530934448
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capsule (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 405317278420828847, guid: eea235ad2fce2f447822036b68c20afa, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea235ad2fce2f447822036b68c20afa, type: 3}
 --- !u!1 &1147595045
@@ -986,6 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceAmount: 200
+  randomize: 1
 --- !u!1001 &405317277609943822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1051,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 405317278420828847, guid: eea235ad2fce2f447822036b68c20afa, type: 3}
       propertyPath: m_Constraints
-      value: 0
+      value: 122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea235ad2fce2f447822036b68c20afa, type: 3}
