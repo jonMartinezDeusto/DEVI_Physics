@@ -20,11 +20,11 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement();
-        jumIsNeeded();
+        Movement();
+        JumIsNeeded();
     }
 
-    private void jumIsNeeded()
+    private void JumIsNeeded()
     {
         if (canJump && Input.GetKeyDown(KeyCode.Space))
         {
@@ -35,7 +35,10 @@ public class Jump : MonoBehaviour
 
     void OnCollisionExit(Collision collision)
     {
-        canJump = false;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("ground"))
+        {
+            canJump = false;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -47,7 +50,7 @@ public class Jump : MonoBehaviour
   
     }
 
-    void movement()
+    void Movement()
     {
         if (Input.GetKey(KeyCode.W))
         {
