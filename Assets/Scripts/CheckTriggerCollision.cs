@@ -37,7 +37,7 @@ public class CheckTriggerCollision : MonoBehaviour
         if (other.gameObject.name == "Capsule")
         {
             Debug.Log("He dejado de chocar con el trigger");
-            Destroy(this.gameObject);
+            
 
         }
 
