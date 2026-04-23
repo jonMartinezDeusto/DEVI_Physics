@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class killpower : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float lifetime = 10f;
+
     void Start()
     {
-        
+        Destroy(gameObject, lifetime);
     }
 
     // Update is called once per frame
