@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
     public Transform gun;
     public float force;
     MeshRenderer mr;
+    Color originalColor;
 
     // Update is called once per frame
     void Update()
@@ -28,22 +29,29 @@ public class Shooting : MonoBehaviour
     private void ShootRay()
     {
         RaycastHit hit;
-        //MeshRenderer mr;
         if (Physics.Raycast(gun.position, new Vector3(0, 0, 1), out hit))
         {
-            mr = hit.collider.gameObject.GetComponent<MeshRenderer>();
-            if (mr != null)
+            MeshRenderer newMr = hit.collider.gameObject.GetComponent<MeshRenderer>();
+            if (newMr != null)
             {
+                if (newMr != mr)
+                {
+                    // apuntamos a un blanco diferente: restaurar el anterior
+                    if (mr != null) mr.material.color = originalColor;
+                    mr = newMr;
+                    originalColor = mr.material.color;
+                }
                 mr.material.color = Color.green;
             }
-        } else
+        }
+        else
         {
+            // no apuntamos a nada: restaurar color original
             if (mr != null)
             {
-                mr.material.color = Color.red;
+                mr.material.color = originalColor;
+                mr = null;
             }
         }
-        //Debug.DrawLine(transform.position, new Vector3(0,0,1) * Mathf.Infinity, Color.yellow);
-        
     }
 }
